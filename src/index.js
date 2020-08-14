@@ -36,7 +36,7 @@ dropzone.classList.add('animate__faster'); // animation
 
 const sourceFileInput = document.getElementById('sourceFile')
 
-let plugin; var URL = window.URL || window.webkitURL;
+let plugin; let url;
 dropzone.addEventListener('click', () => {
   if(plugin) { // download converted plugin
     const file = new Blob([plugin.json], {type: 'application/octet-stream'});
@@ -45,7 +45,6 @@ dropzone.addEventListener('click', () => {
         var a = document.createElement("a"), url = URL.createObjectURL(file);
         a.href = url; a.download = plugin.filename;
         document.body.appendChild(a); a.click();
-        setTimeout(function() { document.body.removeChild(a); window.URL.revokeObjectURL(url); }, 0); 
     }
   } else { // upload new file
     sourceFileInput.click();
