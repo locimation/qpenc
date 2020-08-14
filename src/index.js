@@ -30,13 +30,15 @@ function encryptPlugin(source) {
 };
 
 const dropzone = document.getElementById('dropzone');
-dropzone.innerText = 'Drop your plugin (.qplug, .lua) here...';
+dropzone.innerHTML = 'Drag and drop your plugin (.qplug, .lua) here...<br /><br />or click here to choose a file.';
 dropzone.classList.add('animate__animated'); // animation
 dropzone.classList.add('animate__faster'); // animation
 
+const sourceFileInput = document.getElementById('sourceFile')
+
 let plugin;
 dropzone.addEventListener('click', () => {
-  if(plugin) {
+  if(plugin) { // download converted plugin
     const file = new Blob([plugin.json], {type: 'application/octet-stream'});
     if (window.navigator.msSaveOrOpenBlob) window.navigator.msSaveOrOpenBlob(file, plugin.filename); // IE10+
     else { // Others
@@ -45,27 +47,12 @@ dropzone.addEventListener('click', () => {
         document.body.appendChild(a); a.click();
         setTimeout(function() { document.body.removeChild(a); window.URL.revokeObjectURL(url); }, 0); 
     }
+  } else { // upload new file
+    sourceFileInput.click();
   }
 });
 
-['dragenter', 'dragleave', 'dragover', 'drop'].map(t => dropzone.addEventListener(t, (e) => {
-
-  // Handle drop here
-  e.stopPropagation();
-  e.preventDefault();
-
-  // Hover indication
-  const over = ~['dragenter', 'dragover'].indexOf(e.type);
-  dropzone.classList.remove('download');
-  dropzone.classList[over?'add':'remove']('over');
-
-  // Clear animation
-  dropzone.classList.remove('animate__shakeX');
-
-  // Handle drop
-  if(e.type != 'drop') return;
-  plugin = false; // clear previous encryption
-  const file = e.dataTransfer.files[0];
+function processFile(file) {
   const filenameParts = file.name.match(/(.*)\.([^.]+)/);
   if(!~['qplug','lua'].indexOf(filenameParts[2])) {
     dropzone.classList.add('animate__shakeX');
@@ -87,8 +74,32 @@ dropzone.addEventListener('click', () => {
     dropzone.innerHTML = `
       <img src="download.svg" />
       Click to download ${plugin.filename}
-    `; dropzone.classList.add('download');
+    `;
   }
+}
+
+sourceFileInput.addEventListener('change', (e) => {
+  processFile(sourceFileInput.files[0]);
+});
+
+['dragenter', 'dragleave', 'dragover', 'drop'].map(t => dropzone.addEventListener(t, (e) => {
+
+  // Handle drop here
+  e.stopPropagation();
+  e.preventDefault();
+
+  // Hover indication
+  const over = ~['dragenter', 'dragover'].indexOf(e.type);
+  dropzone.classList.remove('download');
+  dropzone.classList[over?'add':'remove']('over');
+
+  // Clear animation
+  dropzone.classList.remove('animate__shakeX');
+
+  // Handle drop
+  if(e.type != 'drop') return;
+  plugin = false; // clear previous encryption
+  processFile(e.dataTransfer.files[0]);
 
 }));
 

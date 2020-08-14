@@ -51,18 +51,20 @@ button { cursor: pointer; }
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-
-#dropzone.over, #dropzone.download:hover {
-  background: rgba(0,0,0,0.4);
-}
-
-#dropzone.download {
   cursor: pointer;
 }
 
-#dropzone.download img {
+#dropzone.over, #dropzone:hover {
+  background: rgba(0,0,0,0.4);
+}
+
+#dropzone img {
   width: 50px;
   height: 50px;
   padding-right: 100px;
+}
+
+#sourceFile {
+  position: fixed;
+  top: -1000px;
 }
