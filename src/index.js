@@ -57,7 +57,7 @@ dropzone.addEventListener('click', () => {
   // Hover indication
   const over = ~['dragenter', 'dragover'].indexOf(e.type);
   dropzone.classList.remove('download');
-  dropzone.classList.toggle('over', over);
+  dropzone.classList[over?'add':'remove']('over');
 
   // Clear animation
   dropzone.classList.remove('animate__shakeX');
