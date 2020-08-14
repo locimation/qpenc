@@ -6,4 +6,4 @@ It performs RSA-based encryption in-browser using the **node-forge** library, su
 
 The tool is hosted on Github Pages and may be accessed at [locimation.github.io/qpenc](https://locimation.github.io/qpenc/).
 
-**Browsers tested:** Chrome, Edge, IE11
+**Browsers tested:** Chrome, Edge, IE11, Mobile Safari
