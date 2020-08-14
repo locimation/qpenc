@@ -10,6 +10,8 @@ body {
   -webkit-user-select: none;
 }
 
+.preload { display: none; }
+
 #license img {
   height: 20px;
 }
