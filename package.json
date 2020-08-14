@@ -1,0 +1,32 @@
+{
+  "name": "qpenc",
+  "version": "1.0.0",
+  "description": "Utility for encrypting Q-Sys plugins",
+  "main": "qpenc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/locimation/qpenc.git"
+  },
+  "keywords": [
+    "Q-sys",
+    "plugin",
+    "encrypt",
+    "qplug",
+    "qplugx"
+  ],
+  "author": "Michael Goodyear <michael@locimation.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/locimation/qpenc/issues"
+  },
+  "homepage": "https://github.com/locimation/qpenc#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "node-forge": "^0.9.1"
+  }
+}
