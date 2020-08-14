@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/locimation/qpenc.git"
   },
+  "scripts": {
+    "build": "webpack --mode production"
+  },
   "keywords": [
     "Q-sys",
     "plugin",
