@@ -29,7 +29,6 @@ function encryptPlugin(source) {
 
 };
 
-console.log('Initialising drop zone...');
 const dropzone = document.getElementById('dropzone');
 dropzone.innerText = 'Drop your plugin (.qplug, .lua) here...';
 dropzone.classList.add('animate__animated'); // animation
@@ -92,3 +91,6 @@ dropzone.addEventListener('click', () => {
   }
 
 }));
+
+// Copyright
+document.getElementById('copyright').innerHTML = '&copy; ' + (new Date().getFullYear()) + ' Locimation Pty Ltd';
