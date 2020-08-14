@@ -36,7 +36,7 @@ dropzone.classList.add('animate__faster'); // animation
 
 const sourceFileInput = document.getElementById('sourceFile')
 
-let plugin;
+let plugin; var URL = window.URL || window.webkitURL;
 dropzone.addEventListener('click', () => {
   if(plugin) { // download converted plugin
     const file = new Blob([plugin.json], {type: 'application/octet-stream'});
