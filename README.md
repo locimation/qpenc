@@ -1,6 +1,6 @@
-# Q-Sys Plugin Encrypter
+# Q-Sys Plugin Encryption Tool
 
-Q-Sys Plugin Encrypter (QPEnc) is a web-based tool for protecting the source code of QSC Q-Sys Lua plugins.
+QPEnc is a web-based tool for protecting the source code of QSC Q-Sys Lua plugins.
 
 It performs RSA-based encryption in-browser using the **node-forge** library, such that unprotected plugin source code never leaves the user's computer.
 
