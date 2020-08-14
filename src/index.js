@@ -92,5 +92,8 @@ dropzone.addEventListener('click', () => {
 
 }));
 
+// Github
+document.getElementById('github').addEventListener('click', () => { window.open('https://github.com/locimation/qpenc', '_blank'); })
+
 // Copyright
 document.getElementById('copyright').innerHTML = '&copy; ' + (new Date().getFullYear()) + ' Locimation Pty Ltd';

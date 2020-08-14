@@ -16,6 +16,27 @@ body {
   height: 20px;
 }
 
+button { cursor: pointer; }
+
+#github {
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 7px;
+  border: transparent;
+  background: rgba(255,255,255,0.3);
+}
+
+#github:hover {
+  background: rgba(255,255,255,0.6);
+}
+
+#github img {
+  height: 16px;
+  padding-right: 10px;
+  vertical-align: -3px;
+}
+
 #copyright {
   font-size: 80%;
 }
