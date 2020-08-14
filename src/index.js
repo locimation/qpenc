@@ -38,7 +38,7 @@ let plugin;
 dropzone.addEventListener('click', () => {
   if(plugin) {
     const file = new Blob([plugin.json], {type: 'application/octet-stream'});
-    if (window.navigator.msSaveOrOpenBlob) window.navigator.msSaveOrOpenBlob(file, filename); // IE10+
+    if (window.navigator.msSaveOrOpenBlob) window.navigator.msSaveOrOpenBlob(file, plugin.filename); // IE10+
     else { // Others
         var a = document.createElement("a"), url = URL.createObjectURL(file);
         a.href = url; a.download = plugin.filename;
